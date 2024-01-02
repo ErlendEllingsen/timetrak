@@ -33,6 +33,14 @@ work_note = None
 track_start = None
 track_end = None
 
+# Change console title 
+if sys.platform == "win32":
+    os.system("title TimeTrak")
+elif sys.platform == "linux":
+    sys.stdout.write("\x1b]2;TimeTrak\x07")
+elif sys.platform == "darwin":
+    sys.stdout.write("\x1b]2;TimeTrak\x07")
+
 def run_enq(prompt_str, choices):
     print(prompt_str, choices)
     completer = WordCompleter(choices)
